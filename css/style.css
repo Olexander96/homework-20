@@ -1,3 +1,6 @@
+body {
+    padding: 20px;
+}
 th, td {
     padding: 10px;
     border: 2px solid black;
@@ -9,10 +12,33 @@ th:hover {
     color: blue;
 }
 #block {
+    overflow: hidden;
     position: relative;
     width: 300px;
-    height: 200px;
+    height: fit-content;
     border: 2px solid black;
     margin-bottom: 50px;
-    
+}
+.block__move {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    border: 5px solid transparent; 
+    border-right: 5px solid silver; 
+    border-bottom: 5px solid silver;
+    cursor: nwse-resize;
+}
+.block__move:hover {
+    border-right: 5px solid rgb(59, 41, 141); 
+    border-bottom: 5px solid rgb(59, 41, 141);
+}
+textarea {
+    padding: 10px;
+    display: block;
+    min-width: 600px;
+    min-height: 100px;
+}
+h2 {
+    margin: 30px 0;
 }

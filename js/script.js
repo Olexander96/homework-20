@@ -6,12 +6,12 @@
 
     const TEXT = document.querySelector('#text');
     const TEXT_AREA = document.createElement('textarea');
-          TEXT_AREA.style.width = '100%'
+          
 
     function changeText(event) {
         if (event.code == (event.ctrlKey && 'KeyE')) {
             event.preventDefault();
-            TEXT_AREA.textContent = TEXT.textContent;
+            TEXT_AREA.value = TEXT.textContent;
             TEXT.append(TEXT_AREA)
         } else if (event.code == (event.ctrlKey && 'KeyS')) {
             event.preventDefault();
@@ -29,17 +29,17 @@
 
     function sortTableOne(columnNumber) {
     
-        let FIRST_COLUMN = document.querySelectorAll('.company')
-        let FIRST_ARRAY = []
+        let COLUMN = document.querySelectorAll('.company')
+        let ARRAY = []
 
-        FIRST_COLUMN.forEach(item => {
-            FIRST_ARRAY.push(item.children[columnNumber].textContent)
+        COLUMN.forEach(item => {
+            ARRAY.push(item.children[columnNumber].textContent)
         })
+        
+        ARRAY.sort((a, b) => (+a) -(+b));
 
-        FIRST_ARRAY.sort((a, b) => (+a) -(+b));
-
-        FIRST_COLUMN.forEach((item, index) => {
-            item.children[columnNumber].innerHTML = FIRST_ARRAY[index]
+        COLUMN.forEach((item, index) => {
+            item.children[columnNumber].innerHTML = ARRAY[index]
         })  
         
     }
@@ -57,9 +57,10 @@
 
 
     const BLOCK = document.querySelector('#block');
+    const BLOCK_MOVE = document.querySelector('.block__move');
 
-    BLOCK.addEventListener('mousedown', changeBlockSize)
-
+    BLOCK_MOVE.addEventListener('mousedown', changeBlockSize)
+    
     function changeBlockSize() {
         document.addEventListener('mousemove', changingSize);
 
@@ -68,15 +69,12 @@
         })
 
         function changingSize(event) {
-
-            BLOCK.style.cursor = 'nwse-resize';
-
             BLOCK.style.width = `${event.pageX + BLOCK.offsetLeft}px`;
-            
             BLOCK.style.height = `${event.pageY - BLOCK.offsetTop}px`;
             
           };
     }
+
 
 
     
