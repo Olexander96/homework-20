@@ -38,6 +38,7 @@ textarea {
     display: block;
     min-width: 600px;
     min-height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 h2 {
     margin: 30px 0;
