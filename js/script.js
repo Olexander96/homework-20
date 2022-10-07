@@ -35,9 +35,17 @@
         COLUMN.forEach(item => {
             ARRAY.push(item.children[columnNumber].textContent)
         })
+        //сортування в 2 сторони
+        if (+ARRAY[0] > +ARRAY[1]) {
+            ARRAY.sort((a, b) => (+a) - (+b));
+            document.querySelectorAll('.arrow-down')[columnNumber-1].classList.add('arrow-down-active');
+            document.querySelectorAll('.arrow-up')[columnNumber-1].classList.remove('arrow-up-active');
+        } else {
+            ARRAY.sort((a, b) => (+b) - (+a));
+            document.querySelectorAll('.arrow-down')[columnNumber-1].classList.remove('arrow-down-active');
+            document.querySelectorAll('.arrow-up')[columnNumber-1].classList.add('arrow-up-active');
+        }
         
-        ARRAY.sort((a, b) => (+a) -(+b));
-
         COLUMN.forEach((item, index) => {
             item.children[columnNumber].innerHTML = ARRAY[index]
         })  
